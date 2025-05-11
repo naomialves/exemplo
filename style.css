@@ -1,0 +1,105 @@
+body {
+    font-family: 'Playfair Display', serif;
+    background: linear-gradient(to right, #fbc2eb, #a6c1ee);
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0 20px;
+    overflow: auto;
+}
+
+.container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 40px 50px;
+    border-radius: 20px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    max-width: 700px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+h1 {
+    font-size: 3rem;
+    color: #ff6f91;
+    margin-bottom: 20px;
+}
+
+#textoDeclaracao {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+    white-space: pre-wrap;
+    overflow: hidden;
+    border-right: 3px solid #ff6f91;
+    display: inline-block;
+    animation: blink 0.75s step-end infinite;
+}
+
+@keyframes blink {
+    0%, 100% { border-color: transparent; }
+    50% { border-color: #ff6f91; }
+}
+
+button {
+    background-color: #ff6f91;
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    margin-top: 20px;
+    animation: pulse 1.5s infinite;
+}
+
+button:hover {
+    background-color: #ff8fa3;
+    transform: scale(1.05);
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); box-shadow: 0 0 10px rgba(255, 111, 145, 0.5); }
+    50% { transform: scale(1.05); box-shadow: 0 0 20px rgba(255, 111, 145, 0.7); }
+}
+
+.galeria {
+    margin-top: 40px;
+}
+
+.galeria .imagens {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s, transform 1s;
+}
+
+.galeria.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.galeria img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: transform 0.3s, opacity 0.8s ease-in-out;
+    cursor: pointer;
+    opacity: 0;
+}
+
+.galeria img.show {
+    opacity: 1;
+}
+
+.galeria img:hover {
+    transform: scale(1.1);
+}
